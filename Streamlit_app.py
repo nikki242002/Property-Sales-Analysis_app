@@ -46,7 +46,7 @@ def main():
 
     # Theme Toggle
     theme_options = {"Dark": "plotly_dark", "Light": "plotly_white", "Seaborn": "seaborn", "GGplot2": "ggplot2"}
-    selected_theme = st.sidebar.selectbox("Select Theme:", list(theme_options.keys()), index=0)
+    selected_theme = st.sidebar.radio("Select Theme:", list(theme_options.keys()))
     template = theme_options[selected_theme]
     
     st.title("🏠 Property Sales Analysis Dashboard")
