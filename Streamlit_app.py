@@ -35,9 +35,6 @@ def main():
     st.title("🏠 Property Sales Analysis Dashboard")
 
     # Sidebar Filters
-    st.sidebar.header("🔍 Filters")
-    selected_state = st.sidebar.selectbox("Select a State:", ["All"] + list(data["States"].unique()))
-     st.sidebar.header("🔍 Filters")
     states = list(data["States"].unique())
     selected_states = st.sidebar.multiselect("Select States:", states, default=states)
 
