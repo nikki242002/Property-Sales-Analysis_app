@@ -44,13 +44,13 @@ def main():
     # --- Dashboard Layout ---
     col1, col2 = st.columns(2)
 
-    # Dark/Light Mode Toggle
-    theme = st.sidebar.radio("Select Theme:", ["Dark", "Light"], index=0)
-    template = "plotly_dark" if theme == "Dark" else "plotly_white"
+    # Theme Toggle
+    theme_options = {"Dark": "plotly_dark", "Light": "plotly_white", "Seaborn": "seaborn", "GGplot2": "ggplot2"}
+    selected_theme = st.sidebar.selectbox("Select Theme:", list(theme_options.keys()), index=0)
+    template = theme_options[selected_theme]
     
     st.title("🏠 Property Sales Analysis Dashboard")
     
-
     # --- Revenue by State (Bar Chart) ---
     fig_revenue = px.bar(States_metrics, x="States", y="Revenue", color="States",
                          title="📊 Revenue by State", template="plotly_dark")
