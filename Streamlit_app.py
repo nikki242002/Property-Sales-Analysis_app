@@ -78,10 +78,10 @@ def main():
     st.plotly_chart(fig_box, use_container_width=True)
 
     # --- Growth Rate Over Time (Line Chart) ---
-    filtered_data = filtered_data.sort_values("Yearly Sales")
-    fig_growth = px.line(filtered_data, x="Yearly Sales", y="Growth Rate", color="States",title="📊 Growth Rate Over Time",
-                         template="plotly_dark", markers=True,line_group="States")
-    st.plotly_chart(fig_growth, use_container_width=True)
+     filtered_data = filtered_data.sort_values(["Yearly Sales", "States"])  # Ensure chronological order per state
+        fig_growth = px.line(filtered_data, x="Yearly Sales", y="Growth Rate", color="States",
+                             title="📊 Growth Rate Over Time", template=template, markers=True, line_group="States")
+        st.plotly_chart(fig_growth, use_container_width=True)
 
     # --- Summary Metrics ---
     st.sidebar.header("📌 Key Metrics")
