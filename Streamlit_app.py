@@ -71,7 +71,7 @@ def main():
 
     # --- Growth Rate Over Time (Line Chart) --- 
     fig_growth = px.line(filtered_data, x="Yearly Sales", y="Growth Rate", title="📊 Growth Rate Over Time",
-                         template="plotly_dark", markers=True,line_group="States")
+                         template="plotly_dark", color="States", markers=True,line_group="States")
     st.plotly_chart(fig_growth, use_container_width=True)
 
     # --- Summary Metrics ---
