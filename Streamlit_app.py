@@ -17,7 +17,6 @@ def main():
     data["Profit per Sq Ft"] = data["Revenue"] / data["Area (Sq Ft)"]
     data["Growth Rate"] = data["Revenue"].pct_change().fillna(0)
     if "Yearly Sales" in data.columns:
-        data["Yearly Sales"] = pd.to_datetime(data["Yearly Sales"], format="%Y-%m-%d", errors="coerce")
         data["Yearly Sales"] = pd.to_datetime(data["Yearly Sales"], errors="coerce")  
         data["Yearly Sales"] = data["Yearly Sales"].dt.strftime("%Y-%m")
     data["Property Tax Rate"] = np.random.uniform(5, 20, size=len(data))
@@ -45,13 +44,6 @@ def main():
     
     # --- Dashboard Layout ---
     col1, col2 = st.columns(2)
-
-    # Theme Toggle
-    theme_options = {"Dark": "plotly_dark", "Light": "plotly_white", "Seaborn": "seaborn", "GGplot2": "ggplot2"}
-    selected_theme = st.sidebar.radio("Select Theme:", list(theme_options.keys()))
-    template = theme_options[selected_theme]
-    
-    st.title("🏠 Property Sales Analysis Dashboard")
     
     # --- Revenue by State (Bar Chart) ---
     fig_revenue = px.bar(States_metrics, x="States", y="Revenue", color="States",
@@ -78,13 +70,10 @@ def main():
     st.plotly_chart(fig_box, use_container_width=True)
 
     # --- Growth Rate Over Time (Line Chart) ---
-    if not filtered_data.empty and "Yearly Sales" in filtered_data.columns:
       filtered_data = filtered_data.sort_values(["Yearly Sales", "States"])  
       fig_growth = px.line(filtered_data, x="Yearly Sales", y="Growth Rate", color="States",
-                           title="📊 Growth Rate Over Time", template=template, markers=True, line_group="States")
+                           title="📊 Growth Rate Over Time", template="plotly_dark", markers='D', line_group="States")
       st.plotly_chart(fig_growth, use_container_width=True)
-    else:
-        st.warning("No data available for the selected filters.")
 
     # --- Summary Metrics ---
     st.sidebar.header("📌 Key Metrics")
