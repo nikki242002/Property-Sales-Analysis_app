@@ -39,8 +39,7 @@ def main():
     selected_states = st.sidebar.multiselect("Select States:", states, default=states)
 
     # Filter Data
-    filtered_data = data if selected_state == "All" else data[data["States"] == selected_state]
-
+    filtered_data = data[(data["States"].isin(selected_states)) & (data["Yearly Sales"] >= date_range[0]) & (data["Yearly Sales"] <= date_range[1])]
     # --- Dashboard Layout ---
     col1, col2 = st.columns(2)
 
