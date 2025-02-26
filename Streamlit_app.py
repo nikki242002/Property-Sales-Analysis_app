@@ -7,7 +7,7 @@ def main():
     st.set_page_config(page_title="Property Sales Dashboard", layout="wide")
 
     # --- Load Data ---
-    file_path = "Dataset/property_sales_dataset(Cleaned).xlsx"
+    file_path = "Dataset//property_sales_dataset(Cleaned).xlsx"
     data = pd.read_excel(file_path)
     st.write(data)
     data.dropna(inplace=True)
