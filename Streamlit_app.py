@@ -69,8 +69,7 @@ def main():
                      title="📉 Revenue Distribution", template="plotly_dark")
     st.plotly_chart(fig_box, use_container_width=True)
 
-    # --- Growth Rate Over Time (Line Chart) ---
-      filtered_data = filtered_data.sort_values(["Yearly Sales", "States"])  
+    # --- Growth Rate Over Time (Line Chart) --- 
       fig_growth = px.line(filtered_data, x="Yearly Sales", y="Growth Rate", color="States",
                            title="📊 Growth Rate Over Time", template="plotly_dark", markers='D', line_group="States")
       st.plotly_chart(fig_growth, use_container_width=True)
