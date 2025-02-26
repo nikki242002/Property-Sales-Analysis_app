@@ -1,5 +1,7 @@
 🏡 Property Sales Analysis in India 
+
 📊 Comprehensive Data Analysis of Real Estate Trends Across Indian States
+
 🔗 Click Here to Visit the Deployed App 
 (https://property-sales-analysis.streamlit.app/)
 
