@@ -1,6 +1,7 @@
 🏡 Property Sales Analysis in India 
 📊 Comprehensive Data Analysis of Real Estate Trends Across Indian States
-🔗 Click Here to Visit the Deployed App (http://localhost:8501)
+🔗 Click Here to Visit the Deployed App 
+(https://property-sales-analysis.streamlit.app/)
 
 📌 Project Overview
 This Streamlit-powered dashboard provides an interactive and in-depth analysis of property sales trends in India. The analysis covers:
