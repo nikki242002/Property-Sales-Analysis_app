@@ -118,8 +118,6 @@ Bar Plot (sns.barplot())
 X-axis: Cities
 Y-axis: ROI percentage
 
-
-
 📌 Use Cases of This Analysis
 
 🏡 Homebuyers: Helps in finding best locations & price trends.
