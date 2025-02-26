@@ -78,10 +78,14 @@ def main():
     st.plotly_chart(fig_box, use_container_width=True)
 
     # --- Growth Rate Over Time (Line Chart) ---
-      filtered_data = filtered_data.sort_values(["Yearly Sales", "States"])  # Ensure chronological order per state
+    if not filtered_data.empty and "Yearly Sales" in filtered_data.columns:
+      filtered_data = filtered_data.sort_values(["Yearly Sales", "States"])  
       fig_growth = px.line(filtered_data, x="Yearly Sales", y="Growth Rate", color="States",
                            title="📊 Growth Rate Over Time", template=template, markers=True, line_group="States")
       st.plotly_chart(fig_growth, use_container_width=True)
+    else:
+        st.warning("No data available for the selected filters.")
+
     # --- Summary Metrics ---
     st.sidebar.header("📌 Key Metrics")
     total_revenue = filtered_data["Revenue"].sum()
