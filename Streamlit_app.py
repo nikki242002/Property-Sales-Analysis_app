@@ -16,7 +16,7 @@ def main():
     data["Profit per Sq Ft"] = data["Revenue"] / data["Area (Sq Ft)"]
     data["Growth Rate"] = data["Revenue"].pct_change().fillna(0)
     if "Yearly Sales" in data.columns:
-        data["Yearly Sales"] = pd.to_datetime(data["Yearly Sales"],format="%b-%Y",errors="coerce")  
+        data["Yearly Sales"] = pd.to_datetime(data["Yearly Sales"],errors="coerce")  
         data["Yearly Sales"] = data["Yearly Sales"].dt.strftime("%b-%Y")
     data["Property Tax Rate"] = np.random.uniform(5, 20, size=len(data))
     data["Property Tax Amount"] = (data["Revenue"] * data["Property Tax Rate"]) / 100
