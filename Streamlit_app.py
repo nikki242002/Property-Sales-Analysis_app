@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 import streamlit as st
-from datetime import datetime
 
 def main():
     st.set_page_config(page_title="Property Sales Dashboard", layout="wide")
@@ -18,7 +17,7 @@ def main():
     data["Growth Rate"] = data["Revenue"].pct_change().fillna(0)
     if "Yearly Sales" in data.columns:
         data["Yearly Sales"] = pd.to_datetime(data["Yearly Sales"], errors="coerce")  
-        data["Yearly Sales"] = data["Yearly Sales"].dt.strftime("%Y-%m")
+        data["Yearly Sales"] = data["Yearly Sales"].dt.strftime("%b-%Y")
     data["Property Tax Rate"] = np.random.uniform(5, 20, size=len(data))
     data["Property Tax Amount"] = (data["Revenue"] * data["Property Tax Rate"]) / 100
 
